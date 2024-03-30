@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFrag">
+
+    <fragment
+        android:id="@+id/FirstFrag"
+        android:name="com.example.myapp4.FirstFragment"
+        android:label="FirstFragment"
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_FirstFrag_to_listFragment1"
+            app:destination="@id/listFragment1" />
+        <action
+            android:id="@+id/action_FirstFrag_to_recyclerFragment"
+            app:destination="@id/recyclerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listFragment1"
+        android:name="com.example.myapp4.ListFragment1"
+        android:label="fragment_list1"
+        tools:layout="@layout/fragment_list1">
+        <action
+            android:id="@+id/from_list_to_first"
+            app:destination="@id/FirstFrag" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/recyclerFragment"
+        android:name="com.example.myapp4.RecyclerFragment"
+        android:label="fragment_recycler"
+        tools:layout="@layout/fragment_recycler" >
+        <action
+            android:id="@+id/from_recycler_to_first"
+            app:destination="@id/FirstFrag" />
+    </fragment>
+</navigation>
