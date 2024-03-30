@@ -5,7 +5,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,16 +35,22 @@ public class ListFragment1 extends Fragment {
         }
         ListAdapter adapter = new ListAdapter(getContext(), R.layout.list_item, listItems);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(), "Item " + (position + 1), Toast.LENGTH_SHORT).show();
+                Log.d("ListView", "Item " + (position + 1));
+            }
+        });
         view.findViewById(R.id.returnFromList).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requireActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_container_view, new FirstFragment())
-                        .addToBackStack(null).commit();
+                Navigation.findNavController(v).navigate(R.id.from_list_to_first);
             }
         });
-
+        assert getArguments() != null;
+        String result = getArguments().getString("listKey");
+        Toast.makeText(getContext(), result, Toast.LENGTH_LONG).show();
         return view;
     }
 }

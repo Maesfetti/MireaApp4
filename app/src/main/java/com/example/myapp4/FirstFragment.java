@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.ListFragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,20 +21,20 @@ public class FirstFragment extends Fragment {
         view.findViewById(R.id.toListFragment).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requireActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_container_view, new ListFragment1())
-                        .addToBackStack(null).commit();
+                Bundle bundle = new Bundle();
+                String result = "Данные, переданные из FirstFragment в ListFragment";
+                bundle.putString("listKey", result);
+                Navigation.findNavController(v).navigate(R.id.action_FirstFrag_to_listFragment1, bundle);
             }
         });
 
         view.findViewById(R.id.toRecyclerFragment).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requireActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_container_view, new RecyclerFragment())
-                        .addToBackStack(null).commit();
+                Bundle bundle = new Bundle();
+                String result = "Данные, переданные из StartFragment в RecyclerFragment";
+                bundle.putString("recyclerKey", result);
+                Navigation.findNavController(v).navigate(R.id.action_FirstFrag_to_recyclerFragment, bundle);
             }
         });
 

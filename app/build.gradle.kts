@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
 }
 
+
 android {
     namespace = "com.example.myapp4"
     compileSdk = 34
@@ -32,6 +33,9 @@ android {
 }
 
 dependencies {
+    var nav_version = "2.5.3" //Номер версии может меняться
+    implementation("androidx.navigation:navigation-fragment:$nav_version")
+    implementation("androidx.navigation:navigation-ui:$nav_version")
 
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
