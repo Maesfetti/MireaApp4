@@ -36,6 +36,12 @@
             android:layout_height="64dp"
             android:text="RecyclerFrag"
             app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/notificationButton"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:text="Notification"
+            app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>
 
 

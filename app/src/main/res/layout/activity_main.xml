@@ -22,8 +22,4 @@
         tools:layout="@layout/fragment_first"
         />
 
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
